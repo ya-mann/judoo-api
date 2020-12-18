@@ -4,7 +4,7 @@ import HoldValidator from 'App/Validators/HoldValidator'
 
 export default class HoldsController {
   public index() {
-    return Hold.all
+    return Hold.all()
   }
 
   public show({ params }: HttpContextContract) {
