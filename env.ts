@@ -14,11 +14,25 @@
 
 import Env from '@ioc:Adonis/Core/Env'
 
+/*import { Exception } from '@poppinss/utils'
+
+function optionalIf(key: string, value: string): string | undefined {
+  if (Env.get('DB_CONNECTION') !== '') {
+    throw new Exception(`Missing environment variable "${key}"`, 500, 'E_MISSING_ENV_VALUE')
+  }
+  return value
+} */
+
 export default Env.rules({
   HOST: Env.schema.string({ format: 'host' }),
   PORT: Env.schema.number(),
   APP_KEY: Env.schema.string(),
   APP_NAME: Env.schema.string(),
   NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
-  DB_CONNECTION: Env.schema.string(),
+  DB_CONNECTION: Env.schema.enum(['pg'] as const),
+  DB_NAME: Env.schema.string(),
+  DB_HOST: Env.schema.string({ format: 'host' }),
+  DB_PORT: Env.schema.number(),
+  DB_PASSWORD: Env.schema.string(),
+  DB_USER: Env.schema.string(),
 })

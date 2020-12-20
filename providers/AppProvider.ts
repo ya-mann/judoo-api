@@ -14,7 +14,9 @@ export default class AppProvider {
   }
 
   public async ready() {
-    this.app.container.use('Adonis/Addons/Scheduler').run()
+    if (this.app.environment === 'web') {
+      this.app.container.use('Adonis/Addons/Scheduler').run()
+    }
   }
 
   public async shutdown() {

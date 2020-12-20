@@ -8,6 +8,11 @@
     "build"
   ],
   "compilerOptions": {
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "target": "ESNext",
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
